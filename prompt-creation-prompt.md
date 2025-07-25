@@ -1,0 +1,1 @@
+(attach all lms_ document and one prompt example) Please write a prompt for creating _ service. Take inspiration from user-service-prompt. write the prompt in a seperate file

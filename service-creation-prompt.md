@@ -1,0 +1,1 @@
+(attach all lms_ document and one prompt example) + based on attached document and using the quiz service prompt please create a quiz-service. also add the quiz-service in docker-compose file. also please add the port in .env for quiz-service in .env

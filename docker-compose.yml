@@ -23,6 +23,24 @@ services:
     depends_on:
       - mysql
 
+  course-service:
+    build: ./course-service
+    env_file: .env
+    ports:
+      - "${COURSE_SERVICE_PORT}:3002"
+    depends_on:
+      - mysql
+
+  content-service:
+    build: ./content-service
+    env_file: .env
+    ports:
+      - "${CONTENT_SERVICE_PORT}:3003"
+    volumes:
+      - ./content-data:/data/content
+    depends_on:
+      - mysql
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     restart: always
