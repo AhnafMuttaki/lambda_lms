@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS users (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  role ENUM('super_admin','admin','teacher','student') NOT NULL DEFAULT 'student',
+  status ENUM('active','inactive','banned') NOT NULL DEFAULT 'active',
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS user_profiles (
+  user_id BIGINT PRIMARY KEY,
+  bio TEXT,
+  avatar_url VARCHAR(512),
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
