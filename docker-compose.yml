@@ -41,6 +41,70 @@ services:
     depends_on:
       - mysql
 
+  quiz-service:
+    build: ./quiz-service
+    env_file: .env
+    ports:
+      - "${QUIZ_SERVICE_PORT}:3004"
+    depends_on:
+      - mysql
+
+  enrollment-service:
+    build: ./enrollment-service
+    env_file: .env
+    ports:
+      - "${ENROLLMENT_SERVICE_PORT}:3005"
+    depends_on:
+      - mysql
+
+  certificate-service:
+    build: ./certificate-service
+    env_file: .env
+    ports:
+      - "${CERTIFICATE_SERVICE_PORT}:3006"
+    depends_on:
+      - mysql
+
+  live-session-service:
+    build: ./live-session-service
+    env_file: .env
+    ports:
+      - "${LIVE_SESSION_SERVICE_PORT}:3007"
+    depends_on:
+      - mysql
+
+  notification-service:
+    build: ./notification-service
+    env_file: .env
+    ports:
+      - "${NOTIFICATION_SERVICE_PORT}:3008"
+    depends_on:
+      - mysql
+
+  analytics-service:
+    build: ./analytics-service
+    env_file: .env
+    ports:
+      - "${ANALYTICS_SERVICE_PORT}:3009"
+    depends_on:
+      - mysql
+
+  admin-service:
+    build: ./admin-service
+    env_file: .env
+    ports:
+      - "${ADMIN_SERVICE_PORT}:3010"
+    depends_on:
+      - mysql
+
+  discussion-service:
+    build: ./discussion-service
+    env_file: .env
+    ports:
+      - "${DISCUSSION_SERVICE_PORT}:3011"
+    depends_on:
+      - mysql
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     restart: always

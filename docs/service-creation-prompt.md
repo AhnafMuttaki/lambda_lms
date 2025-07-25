@@ -1,0 +1,1 @@
+based on attached document and using the enrollment-service-copilot-prompt please create apis for enrollment-service. all apis shoould be created for enrollment-service listed in tasklist.

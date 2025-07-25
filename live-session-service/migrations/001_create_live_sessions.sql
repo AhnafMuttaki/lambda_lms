@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS live_sessions (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  course_id BIGINT NOT NULL,
+  teacher_id BIGINT NOT NULL,
+  zoom_link VARCHAR(512),
+  scheduled_at DATETIME NOT NULL,
+  duration INT
+);
+
+CREATE TABLE IF NOT EXISTS live_session_attendance (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  session_id BIGINT NOT NULL,
+  user_id BIGINT NOT NULL,
+  attended_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+); 
