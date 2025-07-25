@@ -9,8 +9,7 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "noImplicitAny": false,
-    "types": ["node"]
+    "noImplicitAny": false
   },
   "include": ["index.ts", "__tests__/**/*.ts"]
 } 
