@@ -10,7 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "noImplicitAny": false,
-    "types": ["node"]
+    "types": ["node", "jest"]
   },
   "include": ["index.ts", "__tests__/**/*.ts"]
-} 
+}
