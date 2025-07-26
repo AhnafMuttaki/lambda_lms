@@ -105,6 +105,17 @@ services:
     depends_on:
       - mysql
 
+  frontend:
+    build: ./lms_frontend
+    env_file: .env
+    ports:
+      - "${FRONTEND_PORT}:5173"
+    volumes:
+      - ./lms_frontend:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     restart: always
