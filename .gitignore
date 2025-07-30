@@ -25,3 +25,6 @@ Thumbs.db
 .vscode/
 .idea/
 lms_frontend/.angular/
+lms_frontend/playwright-report/data/
+lms_frontend/test-results/
+

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'environments/environment';
 import { catchError, Observable, of, switchMap, throwError } from 'rxjs';
 import { AuthUtils } from 'app/core/auth/auth.utils';
 import { UserService } from 'app/core/user/user.service';
@@ -151,9 +152,13 @@ export class AuthService
      *
      * @param user
      */
-    signUp(user: { name: string; email: string; password: string; company: string }): Observable<any>
+    signUp(user: { name: string; email: string; password: string; company?: string; role: string }): Observable<any>
     {
-        return this._httpClient.post('api/auth/sign-up', user);
+        // Use user-service endpoint from environment
+        return this._httpClient.post(
+            `${environment.userServiceBaseUrl}/users/register`,
+            user
+        );
     }
 
     /**

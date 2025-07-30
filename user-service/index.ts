@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import express, { Request, Response } from 'express';
+import cors from 'cors';
 import mysql from 'mysql2/promise';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -8,6 +9,8 @@ import swaggerUi from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
 
 const app = express();
+// Enable CORS for all origins (customize as needed)
+app.use(cors());
 const port = process.env.USER_SERVICE_PORT || 3001;
 const jwtSecret = process.env.JWT_SECRET || 'changeme';
 

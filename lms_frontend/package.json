@@ -42,6 +42,7 @@
         "@angular-devkit/build-angular": "15.0.3",
         "@angular/cli": "15.0.3",
         "@angular/compiler-cli": "15.0.3",
+        "@playwright/test": "^1.54.1",
         "@tailwindcss/line-clamp": "0.4.2",
         "@tailwindcss/typography": "0.5.8",
         "@types/chroma-js": "2.1.4",
