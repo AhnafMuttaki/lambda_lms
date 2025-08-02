@@ -29,4 +29,5 @@ lms_frontend/playwright-report/data/
 lms_frontend/test-results/
 dbdata/
 lms_frontend/.cache/
+**/package-lock.json
 lms_frontend/package-lock.json
