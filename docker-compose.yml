@@ -13,7 +13,7 @@ services:
     ports:
       - "${MYSQL_PORT}:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - ./dbdata:/var/lib/mysql
 
   user-service:
     build: ./user-service

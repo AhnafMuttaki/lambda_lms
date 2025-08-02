@@ -27,4 +27,6 @@ Thumbs.db
 lms_frontend/.angular/
 lms_frontend/playwright-report/data/
 lms_frontend/test-results/
-
+dbdata/
+lms_frontend/.cache/
+lms_frontend/package-lock.json

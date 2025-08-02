@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { loginUser } from "@/services/userService"
 import { Link, useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -38,20 +39,24 @@ const Login = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
     if (!validateForm()) return
-    
     setIsLoading(true)
-    
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      await loginUser({ email, password })
       setIsLoading(false)
       toast({
         title: "Welcome back!",
         description: "You have successfully logged in.",
       })
       navigate("/")
-    }, 1000)
+    } catch (err: any) {
+      setIsLoading(false)
+      toast({
+        title: "Login failed",
+        description: err?.error || "Invalid credentials or server error.",
+        variant: "destructive"
+      })
+    }
   }
 
   return (

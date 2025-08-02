@@ -1,0 +1,13 @@
+- Analyze the lms_frontend to understand current frontend implementation
+- Analyze the user-service to understand and list the api endpoints.
+in user-service. Also analyze the api documentation.
+- Create documentation of user-service in /Users/ahnafsunny/Work/projects/lamda_lms/docs/service-docs folder. 
+- Analyze the docker-compose and .env to find user-service endpoint.
+- Check if user-service allow cors. if not implement allow cors.
+- Make changes in lms_fronend to have user service endpoint in environment variable.
+- Create services in lms_frontend to handle api integration.
+- integrate register api in lms_frontend for register screen.
+- integrate login api for lms_frontend for login screen.
+- check if playwrite is configured. if not configure playwrite.
+- write test cases for login page.
+- write test cases for register page.

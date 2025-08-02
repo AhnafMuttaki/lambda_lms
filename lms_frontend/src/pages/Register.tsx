@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { registerUser } from "@/services/userService"
 import { Link, useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -53,20 +54,24 @@ const Register = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
     if (!validateForm()) return
-    
     setIsLoading(true)
-    
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      await registerUser(formData)
       setIsLoading(false)
       toast({
         title: "Account created successfully!",
         description: "Welcome to Lambda LMS. You can now sign in.",
       })
       navigate("/login")
-    }, 1000)
+    } catch (err: any) {
+      setIsLoading(false)
+      toast({
+        title: "Registration failed",
+        description: err?.error || "An error occurred. Please try again.",
+        variant: "destructive"
+      })
+    }
   }
 
   const handleInputChange = (field: string, value: string) => {
