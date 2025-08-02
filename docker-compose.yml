@@ -105,15 +105,16 @@ services:
     depends_on:
       - mysql
 
-  frontend:
-    build: ./lms_frontend
-    env_file: .env
-    ports:
-      - "${FRONTEND_PORT}:4200"
-    volumes:
-      - ./lms_frontend:/app
-    environment:
-      - CHOKIDAR_USEPOLLING=true
+  # frontend:
+  #   platform: linux/amd64
+  #   build: ./lms_frontend
+  #   env_file: .env
+  #   ports:
+  #     - "${FRONTEND_PORT}:8080"
+  #   volumes:
+  #     - ./lms_frontend:/app
+  #   environment:
+  #     - CHOKIDAR_USEPOLLING=true
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

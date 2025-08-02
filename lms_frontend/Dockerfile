@@ -1,20 +1,24 @@
-FROM node:20-alpine
+FROM node:23
+
 
 WORKDIR /app
+
 
 # Copy package.json and package-lock.json (if available)
 COPY package*.json ./
 
 
-# Install dependencies and Angular CLI globally
-RUN npm install --legacy-peer-deps \
-    && npm install -g @angular/cli@15.0.3
+# Remove node_modules if it exists, then install dependencies
+RUN rm -rf node_modules && \
+    npm install && \
+    npm rebuild
+
 
 # Copy the rest of the application code
 COPY . .
 
-# Expose the port Angular uses (default 4200)
-EXPOSE 4200
+# Expose the port Vite uses (default 8080, as per vite.config.ts)
+EXPOSE 8080
 
-# Command to run the Angular development server with hot reload
-CMD ["npm", "run", "start", "--", "--host", "0.0.0.0", "--port", "4200"]
+# Command to run the Vite development server with hot reload
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "8080"]
